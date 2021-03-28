@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "752597475855",
+    "project_id": "sto-delievry",
+    "storage_bucket": "sto-delievry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752597475855:android:42bcf052a36967c47cb97a",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752597475855-8di6030m9iijtauct2jk2s35jnl39ti7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ6vOCcLFXm8vpKUrgLiIPXQ_bG9fVXxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752597475855-8di6030m9iijtauct2jk2s35jnl39ti7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
