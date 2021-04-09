@@ -1,6 +1,8 @@
 import 'package:editable/editable.dart';
 import 'package:flutter/material.dart';
 
+import 'form_widgets.dart';
+
 class Newpackage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+  List packageinfo = new List();
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -28,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Create a Key for EditableState
-  final _editableKey = GlobalKey<EditableState>();
+   final _editableKey = GlobalKey<EditableState>();
 
   List rows =[];
   
@@ -51,7 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _printEditedRows() {
     List editedRows = _editableKey.currentState.editedRows;
     print(editedRows);
+    //setState(() {
+     // print(rows);
+    //});
   }
+   List _saveEditedRow(){
+    List a = _editableKey.currentState.editedRows;
+    //print(a);
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +91,18 @@ class _MyHomePageState extends State<MyHomePage> {
         
         key: _editableKey,
         columns: cols,
+        
         rows: rows,
         zebraStripe: true,
         stripeColor1: Colors.blue[50],
         stripeColor2: Colors.grey[200],
-        onRowSaved: (value) {
-          print(value);
+        
+        onSubmitted: (rows) {
+          print(rows);
         },
-        onSubmitted: (value) {
-          print(value);
+        onRowSaved: (rows) {
+          print(rows);
+          
         },
         borderColor: Colors.blueGrey,
         tdStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -110,13 +123,20 @@ class _MyHomePageState extends State<MyHomePage> {
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
             borderRadius: BorderRadius.all(Radius.circular(0))),
+
       ),
       floatingActionButton: Container(
-        child:RaisedButton(onPressed: 
+      child:ElevatedButton(onPressed: 
         (){
-          print(rows);
-        },),
-        )
+          List packageinfo = _saveEditedRow();
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>FormWidgetsDemo()),);
+          rows = _editableKey.currentState.editedRows;
+        },
+        child : Text('提交成功'),
+        ),
+         
+        ),
+        
         
 
       
